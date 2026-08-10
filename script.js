@@ -90,3 +90,9 @@ const dialog = document.querySelector('#manifestoDialog');
 document.querySelector('#openManifesto').addEventListener('click',()=>dialog.showModal());
 document.querySelector('#closeManifesto').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog) dialog.close()});
+
+// Load the V1.1 living-city layer after the stable V1 interactions are ready.
+const enhancementScript = document.createElement('script');
+enhancementScript.src = 'enhancements.js';
+enhancementScript.defer = true;
+document.body.appendChild(enhancementScript);
