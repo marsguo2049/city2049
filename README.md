@@ -2,6 +2,8 @@
 
 **An interactive laboratory for the future.**
 
+🌐 **Live site:** https://marsguo2049.github.io/city2049/
+
 City 2049 is an evolving interactive world exploring how **operations research, AI, robotics and autonomous systems** may reshape everyday urban life.
 
 The first setting is an original near-future city: recognisable urban infrastructure remains, but autonomous mobility, aerial systems, intelligent buildings, robotics and connected networks increasingly shape everyday life. The project is **not a prediction, digital twin, or claim that every behaviour is optimised**. It is a world-building layer that gives individual modelling and simulation projects a shared context.
@@ -54,25 +56,30 @@ A project should not be described as “optimised” unless its implementation s
 ### 4. World-building should support the research
 The future narrative is not decoration. It helps explain why the decision problem matters, who interacts with the system, and which constraints become important.
 
-## V1
+## V1.1 — Living City
 
-The first version is deliberately lightweight:
+The current version adds a lightweight living-city layer on top of the original interactive map:
 
 - full-screen interactive city map,
 - five conceptual districts,
 - animated autonomous routes and units,
 - clickable project nodes,
 - World View / OR View for each system,
+- scenario controls for Normal, Rush Hour, Storm and Emergency,
+- illustrative city status indicators,
+- dynamic city clock and environmental effects,
 - responsive layout,
 - no build step required.
 
+The scenario layer is explicitly **illustrative world-building**, not a calibrated simulation or optimisation result.
+
 ## Roadmap
 
-### V1 — Explore
-Interactive city, project nodes and future scenarios.
+### V1.1 — Explore / Living City
+Interactive city, project nodes and illustrative future scenarios.
 
 ### V2 — Simulate
-Introduce traffic flows, robot tasks, network demand and city events.
+Introduce traffic flows, robot tasks, network demand and city events with explicit simulation logic and measurable state transitions.
 
 ### V3 — Optimise
 Allow users to change decisions, run methods and compare outcomes across scenarios.
@@ -93,8 +100,10 @@ Then open `http://localhost:8000`.
 
 ## Deployment
 
-The repository is designed to work directly with GitHub Pages from the repository root or through a Pages GitHub Actions workflow.
+GitHub Pages is configured through **GitHub Actions**. Pushes to `main` deploy the static site automatically.
+
+Live URL: https://marsguo2049.github.io/city2049/
 
 ## Status
 
-**V1 — World-building prototype.** The project will evolve alongside the underlying OR / AI / robotics experiments.
+**V1.1 — Living City prototype.** The project will evolve alongside the underlying OR / AI / robotics experiments.
