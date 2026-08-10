@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#071014" />
+  <meta name="description" content="City 2049 — an interactive laboratory for future cities, optimisation, AI and robotics." />
+  <title>CITY 2049 — An Interactive Laboratory for the Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="City 2049 home">
+      <span class="brand-mark"></span>
+      <span>CITY <b>2049</b></span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#world">WORLD</a>
+      <a href="#systems">SYSTEMS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#about">ABOUT</a>
+    </nav>
+    <button class="hud-button" id="toggleHud" aria-pressed="true">CITY LAYERS: ON</button>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="world">
+      <div class="hero-copy">
+        <p class="eyebrow">NEAR-FUTURE CITY / EXPERIMENT 001</p>
+        <h1>What happens when <em>optimisation</em> becomes the operating system of a city?</h1>
+        <p class="lede">City 2049 is an evolving interactive world exploring how operations research, AI, robotics and autonomous systems may reshape everyday urban life.</p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#systems">EXPLORE THE CITY</a>
+          <button class="secondary-action" id="openManifesto">READ THE MANIFESTO</button>
+        </div>
+        <div class="hero-meta" aria-label="Project metadata">
+          <span><b>04</b> live systems</span>
+          <span><b>05</b> city districts</span>
+          <span><b>∞</b> future scenarios</span>
+        </div>
+      </div>
+
+      <div class="city-shell" aria-label="Interactive map of City 2049">
+        <svg class="city" viewBox="0 0 1100 720" role="img" aria-labelledby="cityTitle cityDesc">
+          <title id="cityTitle">City 2049 interactive city map</title>
+          <desc id="cityDesc">A stylised near-future city with a river, districts, autonomous transport, drones and interactive project nodes.</desc>
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#081318" />
+              <stop offset="1" stop-color="#0d1b20" />
+            </linearGradient>
+            <linearGradient id="river" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0b3442" />
+              <stop offset="0.5" stop-color="#0b4654" />
+              <stop offset="1" stop-color="#062b3a" />
+            </linearGradient>
+            <linearGradient id="tower" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#153038" />
+              <stop offset="1" stop-color="#244d52" />
+            </linearGradient>
+            <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <rect width="1100" height="720" rx="28" fill="url(#bg)" />
+
+          <g class="grid" opacity=".26">
+            <path d="M30 110H1070M30 210H1070M30 310H1070M30 410H1070M30 510H1070M30 610H1070" />
+            <path d="M120 30V690M260 30V690M400 30V690M540 30V690M680 30V690M820 30V690M960 30V690" />
+          </g>
+
+          <g class="district district-core">
+            <path d="M475 82 L715 68 L825 194 L736 326 L488 314 L403 184 Z" />
+            <text x="557" y="122">CITY CORE</text>
+          </g>
+          <g class="district district-research">
+            <path d="M752 355 L1000 325 L1050 510 L918 650 L710 606 L676 462 Z" />
+            <text x="800" y="390">ROBOTICS / RESEARCH</text>
+          </g>
+          <g class="district district-residential">
+            <path d="M92 82 L360 78 L412 220 L326 330 L103 292 L55 176 Z" />
+            <text x="135" y="124">RESIDENTIAL</text>
+          </g>
+          <g class="district district-logistics">
+            <path d="M68 430 L328 364 L458 514 L366 665 L106 646 L45 532 Z" />
+            <text x="118" y="474">PORT & LOGISTICS</text>
+          </g>
+          <g class="district district-mobility">
+            <path d="M374 354 L653 346 L718 474 L624 651 L437 647 L337 516 Z" />
+            <text x="422" y="396">MOBILITY HUB</text>
+          </g>
+
+          <path class="river" d="M-40 300 C155 247 256 287 382 326 C526 372 682 303 820 280 C946 258 1022 279 1145 336 L1145 428 C1003 365 903 352 809 370 C645 403 518 449 347 407 C229 378 126 367 -40 421 Z" />
+          <path class="river-line" d="M-15 350 C150 300 276 332 387 367 C538 414 669 345 820 326 C966 307 1052 337 1120 373" />
+
+          <g class="roads">
+            <path d="M180 167 L525 174 L628 226 L840 176" />
+            <path d="M140 565 L344 524 L545 543 L890 516" />
+            <path d="M263 124 L300 282 L278 472 L310 624" />
+            <path d="M624 109 L621 260 L592 426 L618 615" />
+            <path d="M884 365 L934 444 L905 608" />
+          </g>
+
+          <g class="bridge"><rect x="279" y="339" width="120" height="18" rx="9" transform="rotate(12 339 348)" /></g>
+          <g class="bridge"><rect x="699" y="337" width="150" height="18" rx="9" transform="rotate(-8 774 346)" /></g>
+
+          <g class="buildings core-buildings">
+            <path d="M510 265 L510 142 L555 114 L600 145 L600 265 Z" />
+            <path d="M632 278 L632 167 L680 132 L728 169 L728 278 Z" />
+            <path d="M740 250 L740 186 L792 165 L817 207 L817 250 Z" />
+            <path d="M458 271 L458 206 L493 185 L515 215 L515 271 Z" />
+          </g>
+          <g class="windows">
+            <path d="M531 167V236M554 151V236M578 168V236M655 192V250M680 170V250M705 193V250M762 198V232M783 194V232" />
+          </g>
+
+          <g class="residential-buildings">
+            <rect x="128" y="164" width="76" height="74" rx="5" />
+            <rect x="226" y="133" width="86" height="103" rx="5" />
+            <rect x="326" y="189" width="52" height="80" rx="5" />
+          </g>
+
+          <g class="port">
+            <rect x="116" y="522" width="165" height="82" rx="6" />
+            <path d="M145 518 V477 H158 V518 M196 518 V463 H209 V518 M247 518 V485 H260 V518" />
+            <rect x="145" y="544" width="32" height="18" /><rect x="183" y="544" width="32" height="18"/><rect x="221" y="544" width="32" height="18" />
+            <rect x="164" y="568" width="32" height="18" /><rect x="202" y="568" width="32" height="18" />
+          </g>
+
+          <g class="station">
+            <path d="M459 513 L498 465 H597 L639 513 V588 H459 Z" />
+            <path d="M479 513 H618 M493 537 H603 M511 561 H585" />
+          </g>
+
+          <g class="research-campus">
+            <circle cx="874" cy="495" r="70" />
+            <circle cx="874" cy="495" r="42" />
+            <path d="M874 425V565M804 495H944M824 445L924 545M924 445L824 545" />
+          </g>
+
+          <g class="network-routes">
+            <path d="M270 192 C430 106 702 103 863 181" />
+            <path d="M168 556 C387 625 660 628 877 505" />
+            <path d="M875 492 C839 364 737 246 667 208" />
+          </g>
+
+          <g class="moving-units" aria-hidden="true">
+            <g class="drone drone-a"><path d="M0 0 h22 M4 -5v10 M18 -5v10"/><circle cx="11" cy="0" r="3"/></g>
+            <g class="drone drone-b"><path d="M0 0 h22 M4 -5v10 M18 -5v10"/><circle cx="11" cy="0" r="3"/></g>
+            <g class="car"><rect width="25" height="10" rx="4"/><circle cx="6" cy="11" r="2"/><circle cx="19" cy="11" r="2"/></g>
+            <g class="train"><rect width="42" height="13" rx="6"/><path d="M8 3h9M22 3h9"/></g>
+          </g>
+
+          <g class="satellite" aria-hidden="true">
+            <circle cx="900" cy="92" r="4" />
+            <path d="M892 84l16 16M908 84l-16 16M900 70v14M900 100v14" />
+            <path class="orbit" d="M778 108 C840 38 955 38 1010 112" />
+          </g>
+
+          <g class="hotspot" data-system="elevator" tabindex="0" role="button" aria-label="Open Elevator Dispatch system" transform="translate(682 198)">
+            <circle class="pulse" r="22" /><circle class="dot" r="7" />
+            <g class="hotspot-label"><rect x="15" y="-34" width="150" height="31" rx="5"/><text x="28" y="-14">ELEVATOR DISPATCH</text></g>
+          </g>
+          <g class="hotspot" data-system="drone" tabindex="0" role="button" aria-label="Open Drone Swarm system" transform="translate(865 181)">
+            <circle class="pulse" r="22" /><circle class="dot" r="7" />
+            <g class="hotspot-label"><rect x="15" y="-34" width="118" height="31" rx="5"/><text x="28" y="-14">DRONE SWARM</text></g>
+          </g>
+          <g class="hotspot" data-system="soccer" tabindex="0" role="button" aria-label="Open Robot Soccer system" transform="translate(875 492)">
+            <circle class="pulse" r="22" /><circle class="dot" r="7" />
+            <g class="hotspot-label"><rect x="15" y="-34" width="132" height="31" rx="5"/><text x="28" y="-14">ROBOT SOCCER</text></g>
+          </g>
+          <g class="hotspot" data-system="orbital" tabindex="0" role="button" aria-label="Open Orbital Network Design system" transform="translate(900 92)">
+            <circle class="pulse" r="22" /><circle class="dot" r="7" />
+            <g class="hotspot-label"><rect x="15" y="-34" width="146" height="31" rx="5"/><text x="28" y="-14">ORBITAL NETWORK</text></g>
+          </g>
+        </svg>
+
+        <div class="map-caption"><span class="live-dot"></span> CITY MODEL ONLINE <b>10 AUG 2049 / 09:22 UTC</b></div>
+        <div class="city-legend">
+          <span><i class="legend-dot live"></i> LIVE PROJECT</span>
+          <span><i class="legend-line"></i> AUTONOMOUS ROUTE</span>
+          <span><i class="legend-grid"></i> CITY DISTRICT</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="system-section" id="systems">
+      <div class="section-heading">
+        <p class="eyebrow">CITY SYSTEMS / OPERATIONAL LAYERS</p>
+        <h2>A city is not one optimisation problem.</h2>
+        <p>It is a network of interacting decisions — each with its own objectives, constraints, uncertainty and human consequences.</p>
+      </div>
+      <div class="system-grid" id="systemGrid"></div>
+    </section>
+
+    <section class="project-section" id="projects">
+      <div class="project-intro">
+        <p class="eyebrow">FROM WORLD-BUILDING TO WORKING MODELS</p>
+        <h2>Every project is a system inside City 2049.</h2>
+        <p>The city gives each experiment a future context. The experiment gives the city a real decision model.</p>
+      </div>
+      <div class="project-pipeline">
+        <article><span>01</span><h3>OBSERVE</h3><p>Start from a real urban or everyday system.</p></article>
+        <article><span>02</span><h3>IMAGINE</h3><p>Ask how that system might operate in 2049.</p></article>
+        <article><span>03</span><h3>MODEL</h3><p>Translate it into objectives, decisions and constraints.</p></article>
+        <article><span>04</span><h3>EXPERIMENT</h3><p>Compare optimisation, heuristics and simulation honestly.</p></article>
+      </div>
+    </section>
+
+    <section class="future-section">
+      <div>
+        <p class="eyebrow">ROADMAP</p>
+        <h2>From a city you can see,<br>to a city you can experiment with.</h2>
+      </div>
+      <div class="roadmap">
+        <article class="active"><b>V1</b><span>EXPLORE</span><p>Interactive city, project nodes and future scenarios.</p></article>
+        <article><b>V2</b><span>SIMULATE</span><p>Traffic, robot tasks, network demand and city events.</p></article>
+        <article><b>V3</b><span>OPTIMISE</span><p>Let users change decisions and compare system outcomes.</p></article>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-index">2049</div>
+      <div class="about-copy">
+        <p class="eyebrow">ABOUT THE EXPERIMENT</p>
+        <h2>A future vision grounded in decisions.</h2>
+        <p>City 2049 is not a prediction and not a digital twin. It is a growing design-and-research playground: a way to connect operations research, autonomous systems, robotics and everyday observations inside one coherent future world.</p>
+        <p>The first setting is an original near-future city. Its atmosphere is inspired in part by <em>Watch Dogs: Legion</em> and its vision of a familiar urban world transformed by pervasive technology, while City 2049 uses original visual design, systems and scenarios.</p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="system-panel" id="systemPanel" aria-hidden="true">
+    <button class="panel-close" id="closePanel" aria-label="Close system panel">×</button>
+    <p class="eyebrow" id="panelKicker">CITY SYSTEM</p>
+    <h2 id="panelTitle"></h2>
+    <p class="panel-desc" id="panelDesc"></p>
+    <div class="view-switch" role="tablist" aria-label="System views">
+      <button class="active" data-view="world" role="tab">WORLD VIEW</button>
+      <button data-view="or" role="tab">OR VIEW</button>
+    </div>
+    <div class="panel-view active" data-panel-view="world">
+      <h3>2049 SCENARIO</h3>
+      <p id="worldView"></p>
+    </div>
+    <div class="panel-view" data-panel-view="or">
+      <h3>DECISION MODEL</h3>
+      <p id="orView"></p>
+      <div class="tag-list" id="tagList"></div>
+    </div>
+    <div class="panel-links">
+      <a id="repoLink" target="_blank" rel="noreferrer">VIEW REPOSITORY ↗</a>
+      <a id="demoLink" target="_blank" rel="noreferrer">OPEN LIVE DEMO ↗</a>
+    </div>
+  </aside>
+
+  <dialog id="manifestoDialog">
+    <button id="closeManifesto" aria-label="Close manifesto">×</button>
+    <p class="eyebrow">CITY 2049 / MANIFESTO 001</p>
+    <h2>The future city is a decision system.</h2>
+    <p>We often imagine the future through objects: drones, robots, autonomous vehicles, intelligent buildings and satellites. City 2049 starts somewhere else — with the decisions connecting them.</p>
+    <p>Who goes where? Which resource is assigned? What should move first? How should a system respond when demand, weather, infrastructure or people change?</p>
+    <p>This project turns those questions into an explorable world. Each district is a story. Each story can become a model. Each model can become an experiment.</p>
+  </dialog>
+
+  <footer>
+    <span>CITY 2049 / MARS GUO</span>
+    <span>OPERATIONS RESEARCH × AI × ROBOTICS</span>
+    <span>V1.0</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
