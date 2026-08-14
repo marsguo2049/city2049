@@ -1,4 +1,4 @@
-// City 2049 V1.1 enhancement layer. It augments the V1 DOM without replacing the base project.
+// City 2049 V1.2 enhancement layer. It augments the V1 DOM without replacing the base project.
 (function installV11UI(){
   if(!document.querySelector('link[href="v2.css"]')){
     const css=document.createElement('link'); css.rel='stylesheet'; css.href='v2.css'; document.head.appendChild(css);
@@ -20,9 +20,9 @@
       <article><span>CITY EVENT</span><strong id="cityEvent">NONE</strong><small id="eventNote">routine operations</small></article></div>`);
   }
   const caption=document.querySelector('.map-caption b'); if(caption) caption.id='cityClock';
-  const footer=document.querySelector('footer span:last-child'); if(footer) footer.textContent='V1.1 / LIVING CITY';
+  const footer=document.querySelector('footer span:last-child'); if(footer) footer.textContent='V1.2 / PROJECT SYNC';
   const firstRoadmap=document.querySelector('.roadmap article:first-child');
-  if(firstRoadmap) firstRoadmap.innerHTML='<b>V1.1</b><span>LIVE WORLD</span><p>Interactive city, project nodes and illustrative scenario layers.</p>';
+  if(firstRoadmap) firstRoadmap.innerHTML='<b>V1.2</b><span>PROJECT SYNC</span><p>Interactive city, five live projects and illustrative scenario layers.</p>';
 })();
 
 const scenarioData = {
