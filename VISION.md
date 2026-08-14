@@ -45,6 +45,11 @@ Dense mixed-use buildings, vertical mobility, service systems and high-frequency
 
 **Current project:** Elevator Dispatch.
 
+### Residential & Service District
+Homes, hotels, hospitals, neighbourhood kitchens and other everyday service environments where compact robot teams share equipment and work under deadlines.
+
+**Current project:** Robo Kitchen.
+
 ### Robotics / Research District
 Multi-agent systems, robot coordination, autonomous experimentation and human–robot interaction.
 
@@ -63,7 +68,7 @@ Rail, autonomous vehicles, public transport, fleet dispatch and intermodal trans
 ### Airspace & Orbital Layer
 Drone fleets, communications, sensing and infrastructure above the conventional street network.
 
-**Current projects:** Drone Swarm and Orbital Network Design.
+**Current projects:** Drone Swarm and Orbital Computing Allocation.
 
 ## Expansion rule
 
