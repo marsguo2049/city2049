@@ -28,10 +28,11 @@ City 2049 connects these questions to small interactive projects. Each project c
 
 | City system | Project | Current framing |
 | --- | --- | --- |
-| Urban airspace | [Drone Swarm](https://github.com/marsguo2049/drone-swarm) | formation / assignment / coordination / simulation |
-| Intelligent buildings | [Elevator Dispatch](https://github.com/marsguo2049/elevator-dispatch) | dynamic dispatch / heuristics / simulation |
-| Robotics district | [Robot Soccer](https://github.com/marsguo2049/robot-soccer-team) | multi-agent tactical coordination / simulation |
-| Orbital infrastructure | [Orbital Network Design](https://github.com/marsguo2049/orbital-network-design) | network design / location / connectivity trade-offs |
+| Urban airspace | [Drone Swarm](https://github.com/marsguo2049/drone-swarm) | static formation assignment / greedy construction / pairwise-swap local search / idealised animation |
+| Intelligent buildings | [Elevator](https://github.com/marsguo2049/elevator) | online group dispatch / rule-based heuristics / stochastic discrete-time simulation |
+| Robotics district | [Robot Soccer](https://github.com/marsguo2049/robot-soccer-team) | bounded exact assignment and route search / greedy baseline / Monte Carlo simulation |
+| Orbital infrastructure | [Orbital Computing](https://github.com/marsguo2049/orbital-network-design) | task allocation / BFS routing / greedy and insert-relocate local search |
+| Residential services | [Robo Kitchen](https://github.com/marsguo2049/kitchen) | precedence-constrained online scheduling / shared resources / multi-robot simulation |
 
 More systems can be added without forcing every project into the same mathematical method.
 
@@ -56,15 +57,16 @@ A project should not be described as “optimised” unless its implementation s
 ### 4. World-building should support the research
 The future narrative is not decoration. It helps explain why the decision problem matters, who interacts with the system, and which constraints become important.
 
-## V1.1 — Living City
+## V1.2 — Project Sync
 
-The current version adds a lightweight living-city layer on top of the original interactive map:
+The current version keeps the lightweight living-city layer and synchronises it with the five working experiments:
 
 - full-screen interactive city map,
 - five conceptual districts,
 - animated autonomous routes and units,
-- clickable project nodes,
+- five clickable project nodes, including Robo Kitchen in the residential-services district,
 - World View / OR View for each system,
+- implementation-accurate method descriptions and live repository/demo links,
 - scenario controls for Normal, Rush Hour, Storm and Emergency,
 - illustrative city status indicators,
 - dynamic city clock and environmental effects,
@@ -75,8 +77,8 @@ The scenario layer is explicitly **illustrative world-building**, not a calibrat
 
 ## Roadmap
 
-### V1.1 — Explore / Living City
-Interactive city, project nodes and illustrative future scenarios.
+### V1.2 — Explore / Project Sync
+Interactive city, five live project nodes, accurate method framing and illustrative future scenarios.
 
 ### V2 — Simulate
 Introduce traffic flows, robot tasks, network demand and city events with explicit simulation logic and measurable state transitions.
@@ -106,4 +108,4 @@ Live URL: https://marsguo2049.github.io/city2049/
 
 ## Status
 
-**V1.1 — Living City prototype.** The project will evolve alongside the underlying OR / AI / robotics experiments.
+**V1.2 — Project Sync.** The project will evolve alongside the underlying OR / AI / robotics experiments.

@@ -1,35 +1,43 @@
 const systems = {
   drone: {
     index: '01', title: 'Drone Swarm', district: 'AIRSPACE / RESEARCH', status: 'LIVE PROJECT',
-    desc: 'Coordinating many aerial agents as one urban system.',
-    world: 'In City 2049, drone fleets support inspection, emergency response, logistics and large-scale public events. The challenge is not simply making a drone fly — it is coordinating many agents safely, efficiently and responsively in shared airspace.',
-    or: 'The project explores formation and assignment decisions under spatial constraints. It distinguishes optimisation logic, heuristic coordination and simulation rather than treating every behaviour as an optimal solution.',
-    tags: ['assignment', 'formation', 'coordination', 'constraints', 'simulation'],
+    desc: 'Assigning a fleet to one frame of a light formation.',
+    world: 'In City 2049, aerial fleets support public events, inspection and emergency response. The current experiment isolates one foundational decision from that larger system: which drone should occupy each target point in a single display frame?',
+    or: 'A static one-to-one assignment compares a sequential baseline, nearest-target greedy construction and pairwise-swap local improvement. The 2D and 3D motion is idealised explanation, not collision-safe trajectory planning or flight control.',
+    tags: ['one-to-one assignment', 'greedy heuristic', 'pairwise swap', 'formation', 'idealised animation'],
     repo: 'https://github.com/marsguo2049/drone-swarm', demo: 'https://marsguo2049.github.io/drone-swarm/'
   },
   elevator: {
     index: '02', title: 'Elevator Dispatch', district: 'CITY CORE / BUILDINGS', status: 'LIVE PROJECT',
     desc: 'Turning vertical mobility into a real-time dispatch problem.',
     world: 'Super-tall mixed-use buildings make vertical mobility part of the transport network. Elevator groups continuously decide which car should answer which call while demand changes by floor, time and direction.',
-    or: 'This is a dynamic dispatch setting with competing objectives such as waiting time, travel time and service efficiency. Heuristic policies can be compared through simulation without overstating them as exact optimisation.',
-    tags: ['dispatch', 'dynamic demand', 'waiting time', 'heuristics', 'simulation'],
-    repo: 'https://github.com/marsguo2049/elevator-dispatch', demo: 'https://marsguo2049.github.io/elevator-dispatch/'
+    or: 'A stochastic discrete-time simulation compares two rule-based group-dispatch heuristics under the same seeded passenger arrivals. Capacity is enforced and the page reports waiting, journey time, travel and stops; it is not an exact optimiser or engineering controller.',
+    tags: ['online dispatch', 'Poisson arrivals', 'capacity', 'rule-based heuristics', 'discrete-time simulation'],
+    repo: 'https://github.com/marsguo2049/elevator', demo: 'https://marsguo2049.github.io/elevator-dispatch/'
   },
   soccer: {
     index: '03', title: 'Robot Soccer', district: 'ROBOTICS / RESEARCH', status: 'LIVE PROJECT',
-    desc: 'A compact arena for multi-agent tactical coordination.',
+    desc: 'Searching roles and one attacking route in a compact arena.',
     world: 'Robot sport becomes a visible testbed for autonomous teamwork: agents perceive a changing environment, occupy roles, switch tactics and coordinate under time pressure.',
-    or: 'The current project is best understood as a tactical decision-and-simulation environment. It can compare role assignment and heuristic strategies while leaving room for richer optimisation models later.',
-    tags: ['multi-agent', 'roles', 'tactics', 'coordination', 'simulation'],
+    or: 'Within a deliberately small candidate set, branch-and-bound finds the minimum-cost robot-to-position assignment and enumeration selects a limited pass-and-shot route. A greedy baseline and Monte Carlo outcome simulation provide comparison; this is not a full robot football controller.',
+    tags: ['exact bounded search', 'role assignment', 'route enumeration', 'greedy baseline', 'Monte Carlo'],
     repo: 'https://github.com/marsguo2049/robot-soccer-team', demo: 'https://marsguo2049.github.io/robot-soccer-team/'
   },
   orbital: {
-    index: '04', title: 'Orbital Network', district: 'ORBIT / INFRASTRUCTURE', status: 'LIVE PROJECT',
-    desc: 'Designing the network layer above the city.',
-    world: 'City infrastructure no longer stops at the skyline. Orbital relays extend communications, sensing and resilient connectivity beyond terrestrial networks.',
-    or: 'The network-design view focuses on selecting and connecting infrastructure under coverage, connectivity and cost trade-offs. It is a natural bridge between facility location and network design.',
-    tags: ['network design', 'coverage', 'location', 'connectivity', 'trade-offs'],
+    index: '04', title: 'Orbital Computing', district: 'ORBIT / INFRASTRUCTURE', status: 'LIVE PROJECT',
+    desc: 'Allocating city workloads across an orbital computing layer.',
+    world: 'City infrastructure no longer stops at the skyline. Orbital platforms can extend communications, sensing and computing capacity beyond terrestrial networks, especially when demand and resilience needs shift geographically.',
+    or: 'A static planning snapshot assigns tasks to satellites under simplified capacity and sunlight-adjusted compute budgets. BFS supplies fixed-topology routes; a least-hop baseline is compared with greedy construction plus insert-and-relocate local search. It is task allocation, not infrastructure design.',
+    tags: ['task allocation', 'capacity', 'BFS routing', 'greedy heuristic', 'local search'],
     repo: 'https://github.com/marsguo2049/orbital-network-design', demo: 'https://marsguo2049.github.io/orbital-network-design/'
+  },
+  kitchen: {
+    index: '05', title: 'Robo Kitchen', district: 'RESIDENTIAL / SERVICES', status: 'LIVE PROJECT',
+    desc: 'Scheduling two service robots through a shared kitchen.',
+    world: 'In City 2049, homes, hotels, hospitals and neighbourhood services may use compact robot teams to prepare meals. Their value depends on coordinating shared workstations and deadlines, not simply automating one appliance.',
+    or: 'An online discrete-time simulation models two robots, precedence-constrained ingredient jobs, shared boards and stoves, deadlines and four-direction movement. BFS routing supports three transparent scheduling heuristics whose priorities change with the selected objective; it is a teaching model, not real kitchen control.',
+    tags: ['online scheduling', 'precedence', 'shared resources', 'BFS routing', 'multi-robot simulation'],
+    repo: 'https://github.com/marsguo2049/kitchen', demo: 'https://marsguo2049.github.io/kitchen/'
   }
 };
 
@@ -91,7 +99,7 @@ document.querySelector('#openManifesto').addEventListener('click',()=>dialog.sho
 document.querySelector('#closeManifesto').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog) dialog.close()});
 
-// Load the V1.1 living-city layer after the stable V1 interactions are ready.
+// Load the V1.2 living-city layer after the stable base interactions are ready.
 const enhancementScript = document.createElement('script');
 enhancementScript.src = 'enhancements.js';
 enhancementScript.defer = true;
